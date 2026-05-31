@@ -82,31 +82,28 @@ Complexidade:
 
 TABELA COMPARATIVA DE TEMPOS DE EXECUÇÃO
 
-Tamanho       | Algoritmo              | Melhor Caso (ms) | Caso Médio (ms)
---------------|------------------------|------------------|----------------
-1.000         | Simples (Bubble Sort)  | ~2               | ~15
-1.000         | Eficiente (Heap Sort)  | ~1               | ~2
-1.000.000     | Simples (Bubble Sort)  | ~200.000         | ~450.000
-1.000.000     | Eficiente (Heap Sort)  | ~150             | ~300
-
-Figura 1. Tabela comparativa
-
+Tamanho    | Algoritmo              | Melhor Caso (ms) | Caso Médio (ms) | Pior Caso (ms)
+-----------|------------------------|------------------|-----------------|----------------
+1.000      | Simples (Bubble Sort)  | ~2               | ~15             | ~25
+1.000      | Eficiente (Heap Sort)  | ~1               | ~2              | ~3
+1.000.000  | Simples (Bubble Sort)  | ~200.000         | ~450.000        | ~750.000
+1.000.000  | Eficiente (Heap Sort)  | ~150             | ~300            | ~350
 
 4. ANÁLISE CRÍTICA
 
 POR QUE O ALGORITMO O(n²) (BUBBLE SORT) DEMORA MUITO MAIS NO ARQUIVO GRANDE?
 
-1. Crescimento Quadrático:
+1.Crescimento Quadrático:
    - Com 1.000 elementos: aproximadamente 1.000.000 de comparações
    - Com 1.000.000 elementos: aproximadamente 1.000.000.000.000 (um trilhão) de comparações
    - O tempo aumenta exponencialmente, tornando o algoritmo impraticável para dados grandes
 
-2. Número de Operações:
+2.Número de Operações:
    - Bubble Sort realiza aproximadamente n(n-1)/2 comparações
    - Cada comparação envolve trocas de memória (operações custosas)
    - Para 1 milhão de elementos, temos ~500 bilhões de operações
 
-3. Cache e Memória:
+3.Cache e Memória:
    - Com grandes datasets, o Bubble Sort causa muitos cache misses
    - Cada troca de elemento aleatório força o processador a buscar dados em memória lenta
    - O Heap Sort mantém melhor localidade de dados
@@ -114,17 +111,17 @@ POR QUE O ALGORITMO O(n²) (BUBBLE SORT) DEMORA MUITO MAIS NO ARQUIVO GRANDE?
 
 COMO O ALGORITMO O(n log n) (HEAP SORT) MANTÉM MELHOR DESEMPENHO AO AUMENTAR A ENTRADA?
 
-1. Crescimento Logarítmico:
+1.Crescimento Logarítmico:
    - Com 1.000 elementos: ~10.000 operações
    - Com 1.000.000 elementos: ~20.000.000 operações
    - O aumento é muito mais controlado e linear em relação ao logaritmo
 
-2. Estrutura de Dados Eficiente:
+2.Estrutura de Dados Eficiente:
    - O heap é uma árvore balanceada com altura log(n)
    - Cada operação de heapify executa no máximo log(n) comparações
    - Reduz drasticamente o número total de operações
 
-3. Escalabilidade:
+3.Escalabilidade:
    - Mesmo com 1 bilhão de elementos, o Heap Sort permanece viável
    - O Bubble Sort seria praticamente impossível de executar
 
